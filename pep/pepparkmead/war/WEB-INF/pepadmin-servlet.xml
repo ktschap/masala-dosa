@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"       
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+  <!-- the application context definition for the pepadmin DispatcherServlet -->
+
+<context:component-scan base-package="pepparkmead" />
+
+<bean id="adminMailer" class="pepparkmead.google.GoogleAdminSender" />
+
+<bean id="pepDataMgr" class="pepparkmead.PEPDataMgr" />
+<!--<bean id="pepDataMgr" class="pepparkmead.PEPCache">
+	<property name="dataMgr" ref="cacheDataMgr"/>
+</bean> -->
+<bean id="pepEmailFmt" class="pepparkmead.EmailMsgFormatter" />
+<bean id="pepEmailSender" class="pepparkmead.EmailSender">
+	<property name="adminSender" ref="adminMailer"/>
+</bean>
+
+<bean id="vendorController" class="pepparkmead.controller.VendorController">
+	<property name="dataMgr" ref="pepDataMgr"/>
+</bean>
+
+<bean id="reportController" class="pepparkmead.controller.ReportController">
+	<property name="dataMgr" ref="pepDataMgr"/>
+</bean>
+
+<bean id="registrationController" class="pepparkmead.controller.RegistrationController">
+	<property name="dataMgr" ref="pepDataMgr"/>
+	<property name="messageFormatter" ref="pepEmailFmt"/>
+	<property name="messageSender" ref="pepEmailSender"/>
+</bean>
+
+<bean id="regAdminController" class="pepparkmead.controller.RegAdminController">
+	<property name="dataMgr" ref="pepDataMgr"/>
+</bean>
+
+<bean id="classAdminController" class="pepparkmead.controller.ClassAdminController">
+	<property name="dataMgr" ref="pepDataMgr"/>
+</bean>
+
+<bean id="registrationWizardController" class="pepparkmead.controller.RegistrationWizardController">
+	<property name="dataMgr" ref="pepDataMgr"/>
+</bean>
+
+<bean id="configController" class="pepparkmead.controller.ConfigController">
+	<property name="dataMgr" ref="pepDataMgr"/>
+</bean>
+
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+   <property name="prefix" value="/WEB-INF/pages/"/>
+   <property name="suffix" value=".jsp"/>
+</bean>
+ 
+</beans>

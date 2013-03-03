@@ -1,0 +1,7 @@
+*.class
+peploadtest
+pep/pepparkmead/war/WEB-INF/classes
+pep/pepparkmead/war/WEB-INF/appengine-generated/local_db.bin
+pep/pepparkmead/war/WEB-INF/appengine-generated/datastore-indexes-auto.xml
+
+

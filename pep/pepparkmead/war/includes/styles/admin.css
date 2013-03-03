@@ -1,0 +1,51 @@
+* {margin: 0;}
+
+html, body {height: 100%; margin:0 20px;}
+
+div#container {min-height: 100%;	height: auto !important; height: 100%; margin: 0 auto -71px;}
+div#classList {width: 900px; top: -90px;}
+
+div#footer, div#push {height: 50px; clear: both;}
+div#footer {padding-top: 10px; border-top: 1px solid midnightblue;}
+
+div#header {width: 100%; height: 250px; margin: 0; padding: 0;}
+div#breadcrumb {width: 850px; text-align: center; margin-top: 20px; font-size: 14px; margin-left: auto; margin-right: auto; line-height: 20px; font-family: arial;}
+div#breadcrumb span.crumb, div#breadcrumb span.lastcrumb {margin: 0 20px;}
+xdiv#breadcrumb span.crumb {padding-right: 20px;}
+div#breadcrumb span#crumb1 {font-weight: bold; color: orange; font-style: italic;}
+
+div#classes {width: 800px; margin-left: 5px; margin-right: auto; position: relative;}
+
+h1, h2, h3, h4 {margin-left: auto; margin-right: auto; text-align: center; padding-top: 15px;}
+h1 {width: 540px; font-size: 26px;}
+h2 {width: 125px; font-size: 20px; font-weight: bold;}
+h3 {width: 100%; font-size: 20px; border-bottom: 1px solid midnightblue; color: midnightblue; margin: 10px 0 20px; padding-bottom: 5px;}
+h4 {font-size: 20px; margin-bottom: 15px; text-align: left;}
+
+.adminbutton {width: auto; float: center;}
+
+fieldset.data_input input {border: 1px solid #ccc; width: 250px; float: left;}
+div.fld {width: 250px;}
+
+fieldset#submit1, fieldset#submit2 {border-top: 1px solid #a6a6a6; padding: 10px 0 20px; text-align: right;}
+fieldset#submit2 {width: 900px;}
+
+div.txtbox, div.select {height: 35px; margin-bottom: 5px;}
+
+label {width: 200px; text-align: right; float: left; margin: 0 20px 0 0;}
+
+div.fld {float: left;}
+
+#tblClasses {border-style: groove; border-width: 5px; border-color: lightblue; padding: 0; width: 900px;}
+#tblClasses tr#classHeader {background-color: #3300cc; color: white;}
+#tblClasses tr.white {background-color: white;}
+#tblClasses tr.cream {background-color: #ffff99;}
+#tblClasses td {border-style: solid; border-width: 0 1px 1px; text-align: center;}
+
+label.error {width: 210px; color: red; clear: both; text-align: left;}
+fieldset.data_input input.error {border-color: red; background-color: #fff2f2;}
+
+.bold {font-weight: bold;}
+a:link, a:visited, a:active {color: #000; }
+a:hover {color: orange;}
+.ulink { text-decoration: underline; }
