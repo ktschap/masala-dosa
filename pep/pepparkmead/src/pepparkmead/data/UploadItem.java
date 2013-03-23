@@ -3,28 +3,60 @@ package pepparkmead.data;
 
 import org.gmr.web.multipart.GMultipartFile;
 
+import com.google.appengine.api.datastore.Blob;
+
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable
 public class UploadItem
 {
-  private String name;
-  private GMultipartFile fileData;
+	private GMultipartFile fileData;
 
-  public String getName()
-  {
-    return name;
-  }
+	@PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    private Long ID;
 
-  public void setName(String name)
-  {
-    this.name = name;
-  }
+	@Persistent
+    private String name;
+	@Persistent
+	private Blob data;
 
-  public GMultipartFile getFileData()
-  {
-    return fileData;
-  }
+	public UploadItem() {}
 
-  public void setFileData(GMultipartFile fileData)
-  {
-    this.fileData = fileData;
-  }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Blob getData() {
+		return data;
+	}
+
+	public void setData(Blob data) {
+		this.data = data;
+	}
+
+	public Long getID() {
+		return ID;
+	}
+
+	public void setID(Long iD) {
+		ID = iD;
+	}
+
+	public GMultipartFile getFileData()
+	{
+	  return fileData;
+	}
+
+	public void setFileData(GMultipartFile fileData)
+	{
+	  this.fileData = fileData;
+	}
 }
