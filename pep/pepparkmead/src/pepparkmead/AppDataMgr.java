@@ -13,7 +13,7 @@ import pepparkmead.data.PEPClass;
 import pepparkmead.data.Registration;
 import pepparkmead.data.Vendor;
 
-public class PEPDataMgr implements IPEPDataMgr {
+public class AppDataMgr implements IDataMgr {
 
 	private static GlobalConfig confCache = null;
 
@@ -139,14 +139,14 @@ public class PEPDataMgr implements IPEPDataMgr {
 
 	public void saveConfig(GlobalConfig c) {
 		save(c);
-		synchronized(PEPDataMgr.class) {
+		synchronized(AppDataMgr.class) {
 			confCache = c;
 		}
 	}
 	
 	@Override
 	public GlobalConfig getConfig() {
-		synchronized (PEPDataMgr.class) {
+		synchronized (AppDataMgr.class) {
 			if (confCache != null)
 				return confCache;
 		}

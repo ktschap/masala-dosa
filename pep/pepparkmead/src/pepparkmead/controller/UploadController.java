@@ -1,8 +1,5 @@
 package pepparkmead.controller;
 
-
-
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Logger;
@@ -16,10 +13,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
-import com.google.appengine.api.datastore.Blob;
-
-import pepparkmead.IPEPDataMgr;
-import pepparkmead.data.UploadItem;
+import pepparkmead.IDataMgr;
+import pepparkmead.google.UploadItem;
 
 @Controller
 @RequestMapping(value = "/admin/FileUp.do")
@@ -27,8 +22,8 @@ public class UploadController
 {
 	private static final Logger log = Logger.getLogger(ClassBasedReportController.class.getName());
 
-	private IPEPDataMgr dataMgr;
-	public void setDataMgr(IPEPDataMgr mgr) {
+	private IDataMgr dataMgr;
+	public void setDataMgr(IDataMgr mgr) {
 		dataMgr = mgr;
 	}
 	
@@ -65,8 +60,7 @@ public class UploadController
 				byte[] b = new byte[is.available()];
 				int cntRead = is.read(b);
 				if (cntRead > 0) {
-					Blob blob = new Blob(b);
-					uploadItem.setData(blob);
+					uploadItem.setData(b);
 					dataMgr.save(uploadItem);
 				}
 			} catch (IOException e) {

@@ -3,14 +3,14 @@ package pepparkmead.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import pepparkmead.IPEPDataMgr;
+import pepparkmead.IDataMgr;
 import pepparkmead.data.GlobalConfig;
 import pepparkmead.data.IDbID;
 import pepparkmead.data.PEPClass;
 import pepparkmead.data.Registration;
 import pepparkmead.data.Vendor;
 
-public class DummyDataMgr implements IPEPDataMgr {
+public class DummyDataMgr implements IDataMgr {
 
 	public List<PEPClass> pepClasses = new ArrayList<PEPClass>();
 	public Registration registration;

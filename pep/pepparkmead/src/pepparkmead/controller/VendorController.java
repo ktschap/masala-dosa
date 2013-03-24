@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pepparkmead.IPEPDataMgr;
+import pepparkmead.IDataMgr;
 import pepparkmead.data.Vendor;
 
 @Controller
@@ -16,7 +16,7 @@ public class VendorController {
 	
 	private static final Logger log = Logger.getLogger(VendorController.class.getName());
 
-	private IPEPDataMgr dataMgr;
+	private IDataMgr dataMgr;
 
 	@RequestMapping("admin/VendorList.do")
 	public String getVendors(ModelMap model) {
@@ -45,7 +45,7 @@ public class VendorController {
 		return "VendorAdd";
 	}
 	
-	public void setDataMgr(IPEPDataMgr m) {
+	public void setDataMgr(IDataMgr m) {
 		dataMgr = m;
 	}
 		

@@ -14,10 +14,7 @@
 
 <bean id="adminMailer" class="pepparkmead.google.GoogleAdminSender" />
 
-<bean id="pepDataMgr" class="pepparkmead.PEPDataMgr" />
-<!--<bean id="pepDataMgr" class="pepparkmead.PEPCache">
-	<property name="dataMgr" ref="cacheDataMgr"/>
-</bean> -->
+<bean id="pepDataMgr" class="pepparkmead.AppDataMgr" />
 <bean id="pepEmailFmt" class="pepparkmead.EmailMsgFormatter" />
 <bean id="pepEmailSender" class="pepparkmead.EmailSender">
 	<property name="adminSender" ref="adminMailer"/>

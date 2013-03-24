@@ -1,4 +1,4 @@
-package pepparkmead.data;
+package pepparkmead.google;
 
 
 import org.gmr.web.multipart.GMultipartFile;
@@ -34,12 +34,12 @@ public class UploadItem
 		this.name = name;
 	}
 
-	public Blob getData() {
-		return data;
+	public byte[] getData() {
+		return this.data.getBytes();
 	}
 
-	public void setData(Blob data) {
-		this.data = data;
+	public void setData(byte[] dat) {
+		this.data = new Blob(dat);
 	}
 
 	public Long getID() {

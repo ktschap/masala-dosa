@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pepparkmead.IPEPDataMgr;
+import pepparkmead.IDataMgr;
 import pepparkmead.data.PEPClass;
 
 @Controller
 public class ClassAdminController {
 
 	private static final Logger log = Logger.getLogger(ClassAdminController.class.getName());
-	private IPEPDataMgr dataMgr;
+	private IDataMgr dataMgr;
 	
 	@RequestMapping("/admin/ClassEdit.do")
 	public String loadClassEdit(@RequestParam("classToEdit") String classToEdit, ModelMap model) throws Exception {
@@ -50,7 +50,7 @@ public class ClassAdminController {
 		return listClasses(model);
 	}
 
-	public void setDataMgr(IPEPDataMgr m) {
+	public void setDataMgr(IDataMgr m) {
 		dataMgr = m;
 	}
 	

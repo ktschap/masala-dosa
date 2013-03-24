@@ -8,7 +8,7 @@ import pepparkmead.data.PEPClass;
 import pepparkmead.data.Registration;
 import pepparkmead.data.Vendor;
 
-public interface IPEPDataMgr {
+public interface IDataMgr {
 
 	public void addClass(PEPClass c);
 

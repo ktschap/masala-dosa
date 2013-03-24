@@ -8,7 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import pepparkmead.IPEPDataMgr;
+import pepparkmead.IDataMgr;
 import pepparkmead.TeacherList;
 import pepparkmead.data.PEPClass;
 import pepparkmead.util.Util;
@@ -19,7 +19,7 @@ public class RegistrationWizardController {
 
 	private static final Logger log = Logger.getLogger(RegistrationWizardController.class.getName());
 
-	private IPEPDataMgr dataMgr;
+	private IDataMgr dataMgr;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getMainPage(ModelMap model) throws Exception {
@@ -33,7 +33,7 @@ public class RegistrationWizardController {
 		return "index";
 	}
 	
-	public void setDataMgr(IPEPDataMgr m) {
+	public void setDataMgr(IDataMgr m) {
 		dataMgr = m;
 	}
 

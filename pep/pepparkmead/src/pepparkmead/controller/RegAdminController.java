@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pepparkmead.IPEPDataMgr;
+import pepparkmead.IDataMgr;
 import pepparkmead.TeacherList;
 import pepparkmead.controller.ReportController.ReportItem;
 import pepparkmead.data.PEPClass;
@@ -20,7 +20,7 @@ import pepparkmead.util.Util;
 public class RegAdminController {
 
 	private static final Logger log = Logger.getLogger(RegAdminController.class.getName());	
-	private IPEPDataMgr dataMgr;
+	private IDataMgr dataMgr;
 	
 	@RequestMapping(method = RequestMethod.GET, value="/admin/Registrants.do")
 	public String showRegistrants(ModelMap model) {
@@ -74,7 +74,7 @@ public class RegAdminController {
 		return showRegistrants(model);
 	}
 	
-	public void setDataMgr(IPEPDataMgr m) {
+	public void setDataMgr(IDataMgr m) {
 		dataMgr = m;
 	}
 }

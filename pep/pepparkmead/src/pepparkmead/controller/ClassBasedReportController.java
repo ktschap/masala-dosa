@@ -8,16 +8,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import pepparkmead.IPEPDataMgr;
+import pepparkmead.IDataMgr;
 
 //@Controller
 //@RequestMapping("/admin/FileUpload.do")
 public class ClassBasedReportController {
 	private static final Logger log = Logger.getLogger(ClassBasedReportController.class.getName());
 
-	private IPEPDataMgr dataMgr;
+	private IDataMgr dataMgr;
 
-	public void setDataMgr(IPEPDataMgr m) {
+	public void setDataMgr(IDataMgr m) {
 		dataMgr = m;
 	}
 

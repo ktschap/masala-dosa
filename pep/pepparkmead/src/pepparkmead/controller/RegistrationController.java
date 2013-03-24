@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pepparkmead.IMsgFormatter;
-import pepparkmead.IPEPDataMgr;
+import pepparkmead.IDataMgr;
 import pepparkmead.ISender;
 import pepparkmead.data.GlobalConfig;
 import pepparkmead.data.PEPClass;
@@ -28,7 +28,7 @@ public class RegistrationController {
 	
 	private static final Logger log = Logger.getLogger(RegistrationController.class.getName());
 
-	private IPEPDataMgr dataMgr;
+	private IDataMgr dataMgr;
 	private ISender sender;
 	private IMsgFormatter msgFormat;
 	
@@ -123,7 +123,7 @@ public class RegistrationController {
 		}
 	}
 
-	public void setDataMgr(IPEPDataMgr m) {
+	public void setDataMgr(IDataMgr m) {
 		dataMgr = m;
 	}
 	

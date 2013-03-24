@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pepparkmead.IPEPDataMgr;
+import pepparkmead.IDataMgr;
 import pepparkmead.data.PEPClass;
 import pepparkmead.data.Registration;
 import pepparkmead.data.Vendor;
@@ -19,7 +19,7 @@ import pepparkmead.util.Util;
 public class ReportController {
 	private static final Logger log = Logger.getLogger(ReportController.class.getName());
 
-	private IPEPDataMgr dataMgr;
+	private IDataMgr dataMgr;
 
 	@RequestMapping("admin/AttendanceSheet.do")
 	public String attendanceSheets(ModelMap model) {
@@ -92,7 +92,7 @@ public class ReportController {
 		return ri;
 	}
 
-	public void setDataMgr(IPEPDataMgr m) {
+	public void setDataMgr(IDataMgr m) {
 		dataMgr = m;
 	}
 

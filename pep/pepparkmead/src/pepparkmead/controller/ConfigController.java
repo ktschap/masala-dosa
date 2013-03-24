@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import pepparkmead.IPEPDataMgr;
+import pepparkmead.IDataMgr;
 import pepparkmead.data.GlobalConfig;
 
 @Controller
@@ -16,7 +16,7 @@ import pepparkmead.data.GlobalConfig;
 public class ConfigController {
 
 	private static final Logger log = Logger.getLogger(ClassAdminController.class.getName());
-	private IPEPDataMgr dataMgr;
+	private IDataMgr dataMgr;
 	
     @RequestMapping(method = RequestMethod.GET)
     public String getConfigPage(ModelMap model) throws Exception {
@@ -31,7 +31,7 @@ public class ConfigController {
 		return "GlobalConfig";
 	}
     
-    public void setDataMgr(IPEPDataMgr m) {
+    public void setDataMgr(IDataMgr m) {
 		dataMgr = m;
 	}
 
