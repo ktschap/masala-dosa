@@ -17,7 +17,7 @@ public class TestUtil {
 	public static final String CL_NAME = "Test Class1";
 	public static final Long CL_ID = new Long(55);
 	public static final Long CL_VEND = new Long(-45);
-	public static final String CL_PDF = "Parkmead_class1.pdf";
+	public static final Long CL_FILE_ID = new Long(123);
 
 	public static final Registration testReg = new Registration();
 	public static final PEPClass testClass = new PEPClass();
@@ -34,7 +34,7 @@ public class TestUtil {
 		
 		testClass.setClassName(CL_NAME);
 		testClass.setVendorId(CL_VEND);
-		testClass.setFileName(CL_PDF);
+		testClass.setFileId(CL_FILE_ID);
 		testClass.setID(CL_ID);
 	}
 }

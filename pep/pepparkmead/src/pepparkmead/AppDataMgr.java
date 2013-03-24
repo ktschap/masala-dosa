@@ -1,5 +1,6 @@
 package pepparkmead;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.JDOObjectNotFoundException;
@@ -12,6 +13,7 @@ import pepparkmead.data.IDbID;
 import pepparkmead.data.PEPClass;
 import pepparkmead.data.Registration;
 import pepparkmead.data.Vendor;
+import pepparkmead.google.UploadItem;
 
 public class AppDataMgr implements IDataMgr {
 
@@ -101,12 +103,12 @@ public class AppDataMgr implements IDataMgr {
 	}
 	
 
-	public void delete(Class c, IDbID dbObj) {
+	public void delete(Class c, final Long id) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
         try {
         	tx.begin();
-        	Object o = pm.getObjectById(c, dbObj.getID());
+        	Object o = pm.getObjectById(c, id);
             pm.deletePersistent(o);
             tx.commit();
         } catch (Exception e) {
@@ -115,6 +117,10 @@ public class AppDataMgr implements IDataMgr {
         } finally {
             pm.close();
         }		
+	}
+
+	public void delete(Class c, IDbID dbObj) {
+		delete(c, dbObj.getID());
 	}
 
 
@@ -164,5 +170,42 @@ public class AppDataMgr implements IDataMgr {
             pm.close();
         }
         return confCache;
+	}
+
+	@Override
+	public List<UploadItem> getAllUploads() {
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+        try {
+        	Query q = pm.newQuery(UploadItem.class);
+        	List<UploadItem> r = (List<UploadItem>) q.execute();
+    		String str = (r==null) ? "null" : Integer.toString(r.size());
+    		System.out.println("in getAll Uploads: " + str);
+    		return r;
+        } finally {
+            pm.close();
+        }
+		
+	}
+
+	@Override
+	public UploadItem getUpload(Long id) {
+		return (UploadItem)readByID(id, UploadItem.class);
+	}
+
+	@Override
+	public List<PEPClass> getClassesUsingUpload(Long uploadId) {
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+        try {
+	    	Query q = pm.newQuery(PEPClass.class);
+	    	if (uploadId != null) { 
+	    		q.setFilter("fileId == uploadId");
+	    		q.declareParameters("Long uploadId");
+	    		List<PEPClass> l = (List<PEPClass>) q.execute(uploadId);
+	    		l.size();
+	    	}
+	    	return new ArrayList<PEPClass>();
+        } finally {
+            pm.close();
+        }
 	}
 }

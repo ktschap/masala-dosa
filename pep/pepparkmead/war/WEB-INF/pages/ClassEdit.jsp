@@ -4,10 +4,8 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="/includes/styles/admin.css"> 
-		<script type="text/JavaScript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-		<script type="text/javascript" src="/includes/js/jquery.maskedinput-1.3.min.js"></script>
-		<script type="text/javascript" src="/includes/js/jquery.yitihit.min.js"></script>
+		<%@ include file="commonjs.jspf" %>
+		
 		<script type="text/JavaScript">
 		$(document).ready(function(){
 			$("#classForm").validate();
@@ -26,7 +24,8 @@
 		});
 		</script>
 	</head>
-	<body>				
+	<body>		
+		<c:set var="semesters" scope='page'>S13,F13,W14,S14,F14,W15,S15,F15,W16,S16</c:set>		
 		<form name="classForm" id="classForm" action="ClassSave.do" method="post">
 			<fieldset class="data_input"><h3>Class Information</h3>
 				<c:if test="${not empty classToEdit}">					
@@ -65,14 +64,34 @@
 				</div>
 				<div class="txtbox"><label>Time:</label><div class="fld"><input type="text" name="time" id="time" maxlength="50" value="${classToEdit.time}" class="required" /></div></div>
 				<div class="txtbox"><label>Fee:</label><div class="fld"><input type="text" name="feeString" id="feeString" maxlength="50" value="${classToEdit.feeString}" class="required" /></div></div>
-				<div class="txtbox"><label>PDF FileName:</label><div class="fld"><input type="text" name="fileName" id="fileName" maxlength="50" value="${classToEdit.fileName}" class="required" /></div></div>
+				<div class="txtbox">
+					<label>Choose Uploaded Flyer:</label>
+					<div class="select"><div class="fld"><select name="fileId" id="fileId" class="required">
+						<c:forEach var="uploadedFile" items="${uploadedFileList}">
+							<c:choose>
+								<c:when test="${uploadedFile.ID == classToEdit.fileId}">
+									<option value="${uploadedFile.ID}" selected="selected">${uploadedFile.name}</option>
+								</c:when>
+							  	<c:otherwise>
+									<option value="${uploadedFile.ID}">${uploadedFile.name}</option>
+							  	</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</select></div></div>				
+				</div>
 				<div class="txtbox"><label>Class Description:</label><div class="fld"><input type="text" name="notes" id="notes" maxlength="50" value="${classToEdit.notes}" class="required" /></div></div>
 				<div class="select"><label>Semester:</label><div class="fld">
 					<select name="semester" id="semester">
-						<option value="F12">Fall 2012</option>
-						<option value="W13">Winter 2013</option>
-						<option value="S13" selected="selected">Spring 2013</option>
-						<option value="F13">Fall 2013</option>
+						<c:forEach var="currentSemester" items="${semesters}">
+							<c:choose>
+								<c:when test="${currentSemester == classToEdit.fileId}">
+									<option value="${currentSemester}" selected="selected">${currentSemester}</option>
+								</c:when>
+							  	<c:otherwise>
+									<option value="${currentSemester}">${currentSemester}</option>
+							  	</c:otherwise>
+							</c:choose>
+						</c:forEach>
 					</select>
 				</div></div>	
 				<div class="txtbox"><label>Minimum:</label><div class="fld"><input type="text" name="minStudents" id="minStudents" maxlength="4" value="${classToEdit.minStudents}" class="required" /></div></div>
@@ -100,7 +119,7 @@
 				<div class="txtbox"><label>Teacher Email:</label><div class="fld"><input type="text" name="teacherEmail" id="teacherEmail" maxlength="50" value="${classToEdit.teacherEmail}" class="email" /></div></div>
 				<div class="txtbox"><label>Teacher Phone:</label><div class="fld"><input type="text" name="teacherPhone" id="teacherPhone" maxlength="50" value="${classToEdit.teacherPhone}" class="" /></div></div>
 			</fieldset>		
-			<input id="create-class" class=adminbutton type="submit" value="Submit">
+			<input id="create-class" class=adminbutton type="submit" value="Save">
 		</form>
 	</body>
 </html>				

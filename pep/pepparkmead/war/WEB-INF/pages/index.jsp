@@ -6,10 +6,7 @@
 		<title>Parkmead Education Resources Council (PERC) PEP Classes</title>
 		<link rel="stylesheet" type="text/css" href="includes/styles/reset.css">
 		<link rel="stylesheet" type="text/css" href="includes/styles/pep.css">
-		<script type="text/JavaScript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-		<script type="text/javascript" src="includes/js/jquery.maskedinput-1.3.min.js"></script>
-		<script type="text/javascript" src="includes/js/jquery.yitihit.min.js"></script>
+		<%@ include file="commonjs.jspf" %>
 		<script type="text/JavaScript">
 			$(document).ready(function(){
 	
@@ -240,7 +237,7 @@
 							</tr>
 							<c:forEach var="classObj" items="${classes}" varStatus="loop">
 								<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
-								<td><a class=bold href="pdf/${semesterPath}/${classObj.fileName}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
+								<td><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
 								<td> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
 								<td> ${classObj.day} <br/> ${classObj.time}</td>
 								<td> ${classObj.feeString} </td>
@@ -305,7 +302,7 @@
 								<c:forEach var="classObj" items="${classes}" varStatus="loop">
 									<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
 									<td> <input name="classChoicesCB" class="required classChoice" id="class${classObj.ID}" type="checkbox" value="${classObj.ID}" /> </td>
-									<td><a class=bold href="pdf/${semesterPath}/${classObj.fileName}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
+									<td><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
 									<td> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
 									<td> ${classObj.day}<br/>${classObj.time}</td>
 									<td> ${classObj.feeString}</td>

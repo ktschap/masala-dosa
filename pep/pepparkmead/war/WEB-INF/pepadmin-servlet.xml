@@ -54,11 +54,15 @@
 	<property name="dataMgr" ref="pepDataMgr"/>
 </bean>
 
+<bean id="downloadController" class="pepparkmead.controller.DownloadController">
+	<property name="dataMgr" ref="pepDataMgr"/>
+</bean>
+
 <!-- Configure the multipart resolver -->
-    <bean id="multipartResolver" class="org.gmr.web.multipart.GMultipartResolver">
-        <!-- one of the properties available; the maximum file size in bytes -->
-        <property name="maxUploadSize" value="3000000"/>
-    </bean>
+<bean id="multipartResolver" class="org.gmr.web.multipart.GMultipartResolver">
+    <!-- one of the properties available; the maximum file size in bytes -->
+    <property name="maxUploadSize" value="2000000"/>
+</bean>
 
 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
    <property name="prefix" value="/WEB-INF/pages/"/>

@@ -3,10 +3,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<script type="text/JavaScript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-		<script type="text/javascript" src="/includes/js/jquery.maskedinput-1.3.min.js"></script>
-		<script type="text/javascript" src="/includes/js/jquery.yitihit.min.js"></script>
+		<%@ include file="commonjs.jspf" %>
+		
 		<script type="text/JavaScript">
 		$(document).ready(function(){
 

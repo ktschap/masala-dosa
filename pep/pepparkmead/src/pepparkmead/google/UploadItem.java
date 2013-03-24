@@ -3,6 +3,8 @@ package pepparkmead.google;
 
 import org.gmr.web.multipart.GMultipartFile;
 
+import pepparkmead.data.IDbID;
+
 import com.google.appengine.api.datastore.Blob;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
@@ -11,7 +13,7 @@ import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
-public class UploadItem
+public class UploadItem implements IDbID
 {
 	private GMultipartFile fileData;
 

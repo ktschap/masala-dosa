@@ -29,6 +29,8 @@ public class PEPClass {
 	@Persistent
     private  String fileName;
 	@Persistent
+    private  Long fileId;
+	@Persistent
 	private String notes;
 	@Persistent
 	private String semesterName;
@@ -229,5 +231,13 @@ public class PEPClass {
 
 	public void setTeacherPhone(String teacherPhone) {
 		this.teacherPhone = teacherPhone;
+	}
+
+	public Long getFileId() {
+		return fileId;
+	}
+
+	public void setFileId(Long fileId) {
+		this.fileId = fileId;
 	}
 }

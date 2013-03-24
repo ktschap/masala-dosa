@@ -69,9 +69,8 @@ public class EmailMsgFormatter implements IMsgFormatter {
 		sb.append("Registration Instructions for ");
 		sb.append(c.getClassName());
 		sb.append(" can be found at ");
-		sb.append("http://pepparkmead.appspot.com/pdf/");
-		sb.append(semesterSubfolder).append("/");
-		sb.append(c.getFileName());
+		sb.append("http://pepparkmead.appspot.com/details?id=");
+		sb.append(c.getFileId());
 		addNewline(sb);
 	}
 

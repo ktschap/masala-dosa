@@ -21,18 +21,22 @@
 						<TD class=bold>Min/Max</TD>
 						<TD class=bold>Room</TD>
 						<TD class=bold>Vendor ID</TD>
+						<TD class=bold>Flyer File ID</TD>
+						<TD class=bold>Delete</TD>
 					</tr>
 					<c:forEach var="classObj" items="${classes}" varStatus="loop">
 						<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
-						<td><a class=ulink href="ClassEdit.do?classToEdit=${classObj.ID}">Edit</a></td>
-						<td><a class=bold href="/pdf/S13/${classObj.fileName}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
-						<td> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
-						<td> ${classObj.day} <br/> ${classObj.time}</td>
-						<td> ${classObj.feeString} </td>
-						<td> ${classObj.dates} </td>
-						<td> Min:${classObj.minStudents} <br/> Max:${classObj.maxStudents}</td>
-						<td> ${classObj.room} </td>
-						<td> ${classObj.vendorId} </td>
+							<td><a class=ulink href="ClassEdit.do?classToEdit=${classObj.ID}">Edit</a></td>
+							<td><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
+							<td> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
+							<td> ${classObj.day} <br/> ${classObj.time}</td>
+							<td> ${classObj.feeString} </td>
+							<td> ${classObj.dates} </td>
+							<td> Min:${classObj.minStudents} <br/> Max:${classObj.maxStudents}</td>
+							<td> ${classObj.room} </td>
+							<td> ${classObj.vendorId} </td>
+							<td> ${classObj.fileId} </td>
+							<td><a class=ulink onclick="return confirm('Are you sure you want to delete this class?')" href="ClassDelete.do?classToDelete=${classObj.ID}">Delete</a></td>
 						</tr>	
 					</c:forEach>
 					</table>

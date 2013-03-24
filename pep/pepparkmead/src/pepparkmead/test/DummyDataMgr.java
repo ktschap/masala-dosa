@@ -9,6 +9,7 @@ import pepparkmead.data.IDbID;
 import pepparkmead.data.PEPClass;
 import pepparkmead.data.Registration;
 import pepparkmead.data.Vendor;
+import pepparkmead.google.UploadItem;
 
 public class DummyDataMgr implements IDataMgr {
 
@@ -78,6 +79,29 @@ public class DummyDataMgr implements IDataMgr {
 
 	@Override
 	public void saveConfig(GlobalConfig c) {
+		// TODO Auto-generated method stu
+	}
+
+	@Override
+	public List<UploadItem> getAllUploads() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UploadItem getUpload(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PEPClass> getClassesUsingUpload(Long uploadId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(Class c, Long id) {
 		// TODO Auto-generated method stub
 		
 	}

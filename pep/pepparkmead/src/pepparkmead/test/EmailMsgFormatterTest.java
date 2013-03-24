@@ -63,7 +63,7 @@ public class EmailMsgFormatterTest {
 
 	private void checkUrl(String msg) {
 		assertTrue(msg.indexOf(TestUtil.testClass.getClassName()) > 0);
-		assertTrue(msg.indexOf("http://pepparkmead.appspot.com/pdf/S13/" + TestUtil.testClass.getFileName()) > 0);		
+		assertTrue(msg.indexOf("http://pepparkmead.appspot.com/details?id=" + TestUtil.testClass.getFileId()) > 0);		
 	}
 
 	private void checkBracesReplaced(String msg) {
