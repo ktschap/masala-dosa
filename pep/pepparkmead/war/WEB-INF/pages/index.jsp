@@ -207,6 +207,14 @@
 		</script>		
 	</head>
 	<body>
+		<c:set var="regDisabled" scope='page'>disabled</c:set>
+		<c:set var="nextLabel" value="Registration Closed" scope="page"/>
+		<c:set var="classListInstructions" value="Registration is currently closed" scope="page"/>
+		<c:if test="${regOn}">
+			<c:set var="regDisabled" value="" scope="page"/>
+			<c:set var="nextLabel" value="Next Step" scope="page"/>
+			<c:set var="classListInstructions" value="Click the class name to view the brochure" scope="page"/>
+		</c:if> 			
 		<div id="container">
 			<div id="header">
 				<img src="images/untitled.bmp" height="200" width="200" border="0" alt="Parkmead Enrichment Program" id="img_logo" /> 
@@ -226,7 +234,7 @@
 				<c:choose>
 					<c:when test="${not empty classes}">
 						<br/>
-						Click the class name to view the brochure
+						<span id="classListInstructions">${classListInstructions}</span>
 						<table id="tblClasses">
 							<tr id="classHeader">
 								<TD class=bold>Enrichment Class</TD>
@@ -248,7 +256,7 @@
 					</c:when>
 					<c:otherwise><br/>Classes Coming Soon!</c:otherwise>		
 				</c:choose>
-				<fieldset id="submit0"><input id="btn-next-3" type="button" value="Next Step"></fieldset>
+				<fieldset id="submit0"><input id="btn-next-3" type="button" ${regDisabled} value="${nextLabel}"></fieldset>
 			</div>
 			
 			<form name="pepForm" id="pepForm" action="" method="post">

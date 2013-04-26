@@ -18,6 +18,9 @@ public class GlobalConfig {
 	@Persistent
 	private boolean mailVendor;	
 
+	@Persistent
+	private Boolean registrationOn;	
+
 	public String getCurrentSemester() {
 		return currentSemester;
 	}
@@ -34,5 +37,15 @@ public class GlobalConfig {
 
 	public void setMailVendor(boolean mailVendor) {
 		this.mailVendor = mailVendor;
+	}
+	
+	public Boolean getRegistrationOn() {
+		return registrationOn;
+	}
+	
+	public void setRegistrationOn(Boolean b) {
+		if (b == null) 
+			b = Boolean.FALSE;
+		this.registrationOn = b;
 	}
 }

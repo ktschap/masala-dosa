@@ -28,6 +28,8 @@ public class RegistrationWizardController {
 		List<PEPClass> classes = dataMgr.getAllClasses(currentSemester);
 		model.put("classes", classes);
 		model.put("teachers", TeacherList.TEACHER_LIST);
+		model.put("regOn", dataMgr.getConfig().getRegistrationOn());
+		log.info("logging on form model: " + model.get("regOn"));
 		model.put("semesterFriendlyDescription", Util.getFriendlySemesterString(currentSemester));
 		return "index";
 	}
@@ -35,6 +37,4 @@ public class RegistrationWizardController {
 	public void setDataMgr(IDataMgr m) {
 		dataMgr = m;
 	}
-
-
 }

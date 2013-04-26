@@ -6,15 +6,22 @@
 		<link rel="stylesheet" type="text/css" href="/includes/styles/admin.css"> 
 	</head>
 	<body>	
-		<c:set var="semesters" scope='application'>F12,W13,S13,F13,W14,S14,F14,W15,S15,F15</c:set>
+		<c:set var="semesters" scope='page'>F12,W13,S13,F13,W14,S14,F14,W15,S15,F15</c:set>
 		<c:if test="${config.mailVendor}">
 			<c:set var="checked" value="checked" scope="page"/>
+		</c:if> 			
+		<c:if test="${config.registrationOn}">
+			<c:set var="checkedRegOn" value="checked" scope="page"/>
 		</c:if> 			
 		<form name="configForm" id="configForm" action="Config.do" method="post">
 			
 			<div class="txtbox">
 				<label>Mail Vendor on Registration?</label>
 				<input type="checkbox" id="mailVendor" style="float: left;" name="mailVendor" ${checked}></input>
+			</div>
+			<div class="txtbox">
+				<label>Registration On?</label>
+				<input type="checkbox" id="registrationOn" style="float: left;" name="registrationOn" ${checkedRegOn}></input>
 			</div>
 			<div class="txtbox">
 				<label>Set Current Semester:</label>

@@ -13,37 +13,34 @@
 		</script>
 	</head>
 	<body>
-	
-		<table>
- 			<tr id="classHeader">
+		<br/><p class="bold"> Flyers currently available:</p><br/>
+		<table id="tblFiles">
+ 			<tr id="filesHeader">
 				<td class=bold>Flyer Name</td>
-				<td class=bold>Database ID</td>
-				<td class=bold>Action(s)</td>
+				<td class=bold>Unique File ID</td>
+				<td class=bold>Actions</td>
 			</tr>
 	 		<c:forEach var="dbFile" items="${dbFiles}" varStatus="loop">
-	 			<tr>
+	 			<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
 	 				<td>${dbFile.name}</td>
 	 				<td>${dbFile.ID}</td>
 	 				<td><a href="/admin/DeleteUpload.do?id=${dbFile.ID}" onclick="return confirm('Really delete this file? This cannot be undone!')">Delete Permanently</a></td>
 	 			</tr>
         	</c:forEach>
         </table>
+        <br/>
 		<div id="errors">${errorMsg}</div>				
 		<form:form id="fileUploadForm" modelAttribute="uploadItem" method="post" enctype="multipart/form-data">
             <fieldset>
-                <legend>Upload Fields</legend>
+                <legend>Flyer Import</legend>
                 <p>
-                    <form:label for="name" path="name">Name</form:label><br/>
-                    <form:input path="name"/>
+                    <form:label for="name" path="name">Unique name (ie "S13_Tennis")</form:label><form:input path="name" class="required"/>
                 </p>
- 
                 <p>
-                    <form:label for="fileData" path="fileData">File</form:label><br/>
-                    <form:input path="fileData" type="file"/>
+                    <form:label for="fileData" path="fileData">File from your computer</form:label><form:input path="fileData" type="file" class="required"/>
                 </p>
- 
                 <p>
-                    <input type="submit" />
+                    <input type="submit" value="Import Flyer"/>
                 </p> 
             </fieldset>
         </form:form>

@@ -15,20 +15,21 @@ import pepparkmead.data.GlobalConfig;
 @RequestMapping("/admin/Config.do")
 public class ConfigController {
 
+	private static final String GLOBAL_CONFIG = "GlobalConfig";
 	private static final Logger log = Logger.getLogger(ClassAdminController.class.getName());
 	private IDataMgr dataMgr;
 	
     @RequestMapping(method = RequestMethod.GET)
     public String getConfigPage(ModelMap model) throws Exception {
     	model.put("config", dataMgr.getConfig());
-		return "GlobalConfig";
+		return GLOBAL_CONFIG;
 	}
 
     @RequestMapping(method = RequestMethod.POST)
     public String saveConfig(@ModelAttribute("config") GlobalConfig conf, ModelMap model) throws Exception {
     	log.info("Saving new config: " + conf.toString());
     	dataMgr.save(conf);
-		return "GlobalConfig";
+		return GLOBAL_CONFIG;
 	}
     
     public void setDataMgr(IDataMgr m) {

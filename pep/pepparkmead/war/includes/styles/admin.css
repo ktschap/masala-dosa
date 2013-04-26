@@ -42,6 +42,12 @@ div.fld {float: left;}
 #tblClasses tr.cream {background-color: #ffff99;}
 #tblClasses td {border-style: solid; border-width: 0 1px 1px; text-align: center;}
 
+#tblFiles {border-style: groove; border-width: 5px; border-color: lightblue; padding: 0; width: 900px;}
+#tblFiles tr#filesHeader {background-color: #3300cc; color: white;}
+#tblFiles tr.white {background-color: white;}
+#tblFiles tr.cream {background-color: #ffff99;}
+#tblFiles td {border-style: solid; border-width: 0 1px 1px; text-align: center;}
+
 label.error {width: 210px; color: red; clear: both; text-align: left;}
 fieldset.data_input input.error {border-color: red; background-color: #fff2f2;}
 
