@@ -5,7 +5,7 @@
 	</head>
 		<frameset rows="10%,*">
 			<frame src="/admin/adminmenu.htm" name="MenuFrame"/>
-			<frame name="ContentFrame"/>
+			<frame src="/admin/adminhelp.htm" name="ContentFrame"/>
 		</frameset>
 		</div>
 </html>

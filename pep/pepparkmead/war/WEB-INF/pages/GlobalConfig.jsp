@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="/includes/styles/admin.css"> 
 	</head>
 	<body>	
-		<c:set var="semesters" scope='page'>F12,W13,S13,F13,W14,S14,F14,W15,S15,F15</c:set>
+		<c:set var="semesters" scope='page'>S13,F13,W14,S14,F14,W15,S15,F15</c:set>
 		<c:if test="${config.mailVendor}">
 			<c:set var="checked" value="checked" scope="page"/>
 		</c:if> 			
@@ -40,7 +40,7 @@
 					</select>
 				</div></div>				
 			</div>
-			<input id="create-class" class=adminbutton type="submit" value="Submit">
+			<input id="create-class" class=adminbutton type="submit" value="Save">
 		</form>
 	</body>
 </html>				

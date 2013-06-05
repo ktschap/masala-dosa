@@ -51,6 +51,10 @@ div.fld {float: left;}
 label.error {width: 210px; color: red; clear: both; text-align: left;}
 fieldset.data_input input.error {border-color: red; background-color: #fff2f2;}
 
+#helpquestions {margin:20px 0px;}
+li.padded {margin:15px 0px;}
+div.helpcontent {font-weight: bold; margin-bottom: 10px;})
+
 .bold {font-weight: bold;}
 a:link, a:visited, a:active {color: #000; }
 a:hover {color: orange;}
