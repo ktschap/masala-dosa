@@ -5,10 +5,10 @@ html, body {height: 100%; margin:0 1px;}
 div#container {min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -71px;}
 div#classList {width: 900px; top: -90px;}
 
-div#footer, div#push {height: 50px; clear: both;}
-div#footer {padding-top: 10px; border-top: 1px solid midnightblue;}
+div#footer {height: 30px; clear: both; padding-top: 10px; border-top: 1px solid midnightblue;}
 
 div#header {width: 100%; height: 250px; margin: 0; padding: 0;}
+div#header-narrow {display:none;}
 div#breadcrumb {width: 850px; text-align: center; margin-top: 10px; font-size: 14px; margin-left: auto; margin-right: auto; line-height: 20px; font-family: arial;}
 div#breadcrumb span.crumb, div#breadcrumb span.lastcrumb {margin: 0 20px;}
 xdiv#breadcrumb span.crumb {padding-right: 20px;}
@@ -78,3 +78,50 @@ ol li {margin: 10px 0 0 20px;}
 
 div#breadcrumb div {text-align: center; width: 150px; height: 50px; float: left;}
 div#breadcrumb span.crumb, div#breadcrumb span.lastcrumb {margin: 0;}
+
+@media screen and (max-width:480px){
+	div#header{display:none;}
+	br {display:none;}
+	div#header-narrow{display:block;}
+	div#classList {top:auto;}
+	
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	h1,h2 {padding-top: 5px;}
+	div#frontpage,form#pepForm {width: 100%; top: 0px;}
+	#tblClasses {width:100%;}
+
+	span#classListInstructions {display:none;}
+	tr#classHeader { display:none;}
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		width:100%;
+	}
+	
+	td:before { 
+		position: absolute;
+		top: 0px;
+		left: 5px;
+		padding-right: 10px; 
+		white-space: nowrap;
+		float: left;
+	}
+	
+	td:nth-of-type(2):before { content: "Grades"; }
+	td:nth-of-type(3):before { content: "Meets"; }
+	td:nth-of-type(4):before { content: "Fee"; }
+	td:nth-of-type(5):before { content: "Dates"; }
+	
+	input#btn-next-3,input#btn-next-2 { float:left;}
+	div#footer {margin-top: 15px;}
+	
+	fieldset#submit2 {width: 100%;}
+	div#classList { width: 100%; top:0px;}
+}

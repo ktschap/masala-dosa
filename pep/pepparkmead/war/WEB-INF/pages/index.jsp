@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<meta name="viewport" content="width=device-width">
 		<title>Parkmead Education Resources Council (PERC) PEP Classes</title>
 		<link rel="stylesheet" type="text/css" href="includes/styles/reset.css">
 		<link rel="stylesheet" type="text/css" href="includes/styles/pep.css">
@@ -31,6 +32,10 @@
 					<div><span class="crumb" id="crumb4">Step 4:<br>Waiver</span></div>
 					<div><span class="lastcrumb" id="crumb5">Step 5:<br>Contact Vendor</span></div>
 				</div>
+			</div>
+			<div id="header-narrow">
+				<h1>PEP Enrollment</h1>
+				<h2>${semesterFriendlyDescription}</h2>
 			</div>
 
 			<div id="frontpage">
@@ -83,7 +88,7 @@
 						<div class="txtbox"><label>Email:</label><div class="fld"><input type="text" name="email" maxlength="50" value="" class="required email" /></div></div>
 
 						<div class="inp_group checkboxes" id="inp_group-1">
-							After enrichment class my child will:
+							After class my child will:
 							<div class="fld"><input type="radio" name="afterClass" id="afterClass1" value="keyspot" class="required" onclick="$('#pickedupby').attr('disabled',true); $('#otherinstructions').attr('disabled',true)" /><label>Go to Keyspot</label></div>
 							<div class="fld"><input type="radio" name="afterClass" id="afterClass2" value="pickedup" class="required" onclick="$('#pickedupby').attr('disabled',false); $('#otherinstructions').attr('disabled',true)" /><label>Be picked up at class by </label><input type="text" class="moreinfo" name="pickedupby" id="pickedupby" maxlength="50" value="" disabled="disabled" /></div>
 							<div class="fld"><input type="radio" name="afterClass" id="afterClass3" value="other" class="required" onclick="$('#otherinstructions').attr('disabled',false); $('#pickedupby').attr('disabled',true)" /><label>Other instructions:</label><input type="text" class="moreinfo" name="otherinstructions" id="otherinstructions" maxlength="50" value="" disabled="disabled" /></div>
@@ -225,7 +230,7 @@
 					<fieldset id="submit4"><input id="btn-restart" type="button" value="Back to Start"></fieldset>					
 				</div>
 			</form>
+			<div id="footer"><a href="mailto: ParkmeadPEP@gmail.com">Contact Us</a></div>
 		</div>
-		<div id="footer"><a href="mailto: ParkmeadPEP@gmail.com">Contact Us</a></div>
 	</body>
 </html>
