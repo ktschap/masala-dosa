@@ -85,8 +85,8 @@ div#breadcrumb span.crumb, div#breadcrumb span.lastcrumb {margin: 0;}
 	div#header-narrow{display:block;}
 	div#classList {top:auto;}
 	
-	table, thead, tbody, th, td, tr { 
-		display: block; 
+	table, thead, tbody, th, tr { 
+		display: block; 	
 	}
 	
 	h1,h2 {padding-top: 5px;}
@@ -97,14 +97,14 @@ div#breadcrumb span.crumb, div#breadcrumb span.lastcrumb {margin: 0;}
 	tr#classHeader { display:none;}
 	tr { border: 1px solid #ccc; }
 	
-	td { 
+	td.fee,td.meets,td.dates,td.grades,td.classname,td.classname2,td.selectclass { 
 		/* Behave  like a "row" */
+		display: block; 
 		border: none;
 		border-bottom: 1px solid #eee; 
 		position: relative;
 		width:100%;
 	}
-	
 	td:before { 
 		position: absolute;
 		top: 0px;
@@ -113,15 +113,22 @@ div#breadcrumb span.crumb, div#breadcrumb span.lastcrumb {margin: 0;}
 		white-space: nowrap;
 		float: left;
 	}
+	td.selectclass {text-align: left;}
 	
-	td:nth-of-type(2):before { content: "Grades"; }
-	td:nth-of-type(3):before { content: "Meets"; }
-	td:nth-of-type(4):before { content: "Fee"; }
-	td:nth-of-type(5):before { content: "Dates"; }
-	
+	td.selectclass:before { content: "Enroll for this class";}
+	td.grades:before { content: "Grades"; }
+	td.meets:before { content: "Meets"; }
+	td.fee:before { content: "Fee"; }
+	td.dates:before { content: "Dates"; }
+	 
+	label {font-weight:12; text-align: left; float: left; margin: 0 0 0 10px;}
+	div.fld {float:none;}
 	input#btn-next-3,input#btn-next-2 { float:left;}
 	div#footer {margin-top: 15px;}
-	
+	fieldset.data_input input { float:none;}
+	#inp_group-1 .fld { margin: 0px 0 10px 0; }
+	#inp_group-1 { margin-top: 20px; }
+
 	fieldset#submit2 {width: 100%;}
 	div#classList { width: 100%; top:0px;}
 }

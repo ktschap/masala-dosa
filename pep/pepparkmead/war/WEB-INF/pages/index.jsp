@@ -53,11 +53,11 @@
 							</tr>
 							<c:forEach var="classObj" items="${classes}" varStatus="loop">
 								<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
-								<td><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
-								<td> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
-								<td> ${classObj.day} <br/> ${classObj.time}</td>
-								<td> ${classObj.feeString} </td>
-								<td> ${classObj.dates} </td>
+								<td class="classname"><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
+								<td class="grades"> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
+								<td class="meets"> ${classObj.day} <br/> ${classObj.time}</td>
+								<td class="fee"> ${classObj.feeString} </td>
+								<td class="dates"> ${classObj.dates} </td>
 								</tr>	
 							</c:forEach>
 						</table>
@@ -71,8 +71,8 @@
 
 				<div id="demographics" >
 					<fieldset class="data_input"><h3>Student Information</h3>
-						<div class="txtbox"><label>Student's First Name:</label><div class="fld"><input type="text" name="studentNameFirst" id="studentNameFirst" maxlength="50" value="" class="required" /></div></div>
-						<div class="txtbox"><label>Student's Last Name:</label><div class="fld"><input type="text" name="studentNameLast" id="studentNameLast" maxlength="50" value="" class="required" /></div></div>
+						<div class="txtbox"><label>Student First Name:</label><div class="fld"><input type="text" name="studentNameFirst" id="studentNameFirst" maxlength="50" value="" class="required" /></div></div>
+						<div class="txtbox"><label>Student Last Name:</label><div class="fld"><input type="text" name="studentNameLast" id="studentNameLast" maxlength="50" value="" class="required" /></div></div>
 						<div class="select"><label>Grade:</label><div class="fld"><select name="studentGrade" id="studentGrade" class="required"><option value="">Choose One</option><option value="K">Kinder</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option></select></div></div>
 
 						<div class="select"><label>Teacher:</label><div class="fld">
@@ -117,12 +117,12 @@
 								</tr>
 								<c:forEach var="classObj" items="${classes}" varStatus="loop">
 									<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
-									<td> <input name="classChoicesCB" class="required classChoice" id="class${classObj.ID}" type="checkbox" value="${classObj.ID}" /> </td>
-									<td><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
-									<td> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
-									<td> ${classObj.day}<br/>${classObj.time}</td>
-									<td> ${classObj.feeString}</td>
-									<td> ${classObj.dates}</td>
+									<td class="selectclass"> <input name="classChoicesCB" class="required classChoice" id="class${classObj.ID}" type="checkbox" value="${classObj.ID}" /> </td>
+									<td class="classname2"><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
+									<td class="grades"> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
+									<td class="meets"> ${classObj.day}<br/>${classObj.time}</td>
+									<td class="fee"> ${classObj.feeString}</td>
+									<td class="dates"> ${classObj.dates}</td>
 									</tr>	
 								</c:forEach>
 								</table>
@@ -205,18 +205,18 @@
 						<li>My child/ward is allergic to the following foods, materials, etc.&nbsp;<input type="text" name="otherAllergies" value="" width="20" maxlength="250"></li></ol></p>
 
 						<p>Emergency contact if I cannot be reached:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Name:&nbsp;&nbsp;<input type="text" name="emergencyContactName" value="" class="required" size="25" maxlength="250"><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Phone:&nbsp;<input type="text" name="emergencyContactPhone" class="required" id="emergencyContactPhone" value="" size="25" maxlength="250"><br>
-
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; font-size: 11px; font-weight: bold;">(Please enter numbers only, starting with your area code.)</span></p>
+						<ul>
+						<li><span id="emergencyContactName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Name:&nbsp;&nbsp;</span><input type="text" name="emergencyContactName" value="" class="required" size="25" maxlength="250"></li><br>
+						<li><span id="emergencyContactPhone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Phone:&nbsp;</span><input type="text" name="emergencyContactPhone" class="required" id="emergencyContactPhone" value="" size="25" maxlength="250"></li><br>
+						</ul>
+						</p>
 						<p>Student&rsquo;s Medical Insurance Carrier:<br>
-
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Company Name:&nbsp;<input type="text" name="insuranceCompany" value="" class="required" size="25" maxlength="50"><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Policy Number:&nbsp;<input type="text" name="insurancePolicyNumber" value="" class="required" size="25" maxlength="50"><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Phone:&nbsp;<input type="text" name="insurancePhone" id="insurancePhone" value="" class="required" size="25" maxlength="250"><br>
-
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; font-size: 11px; font-weight: bold;">(Please enter numbers only, starting with your area code.)</span></p>
-
+						<ul>
+						<li><span id="insuranceName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Company Name:&nbsp;</span><input type="text" name="insuranceCompany" value="" class="required" size="25" maxlength="50"></li><br>
+						<li><span id="insurancePolicy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Policy Number:&nbsp;</span><input type="text" name="insurancePolicyNumber" value="" class="required" size="25" maxlength="50"></li><br>
+						<li><span id="insurancePhone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Phone:&nbsp;</span><input type="text" name="insurancePhone" id="insurancePhone" value="" class="required" size="25" maxlength="250"></li><br>
+						</ul>
+						</p>
 						<div id="waiverAcknowledgmentDiv">
 							<div id="check2" style="width: 35px; float: left;"><input type="checkbox" name="waiverAcknowledgment" id="waiverAcknowledgment" class="required">&nbsp;<span class="bold red">*</span></div>
 							<div id="text2"><span class="bold red">I acknowledge that I have carefully read this Parent Approval, Student Waiver &amp; Medical Authorization Form and I understand and agree to its terms.</span></div>
