@@ -97,7 +97,7 @@ div#breadcrumb span.crumb, div#breadcrumb span.lastcrumb {margin: 0;}
 	tr#classHeader { display:none;}
 	tr { border: 1px solid #ccc; }
 	
-	td.fee,td.meets,td.dates,td.grades,td.classname,td.classname2,td.selectclass { 
+	td.fee,td.meets,td.dates,td.room,td.grades,td.classname,td.classname2,td.selectclass { 
 		/* Behave  like a "row" */
 		display: block; 
 		border: none;
@@ -120,7 +120,8 @@ div#breadcrumb span.crumb, div#breadcrumb span.lastcrumb {margin: 0;}
 	td.meets:before { content: "Meets"; }
 	td.fee:before { content: "Fee"; }
 	td.dates:before { content: "Dates"; }
-	 
+	td.room:before { content: "Room"; }
+
 	label {font-weight:12; text-align: left; float: left; margin: 0 0 0 10px;}
 	div.fld {float:none;}
 	input#btn-next-3,input#btn-next-2 { float:left;}

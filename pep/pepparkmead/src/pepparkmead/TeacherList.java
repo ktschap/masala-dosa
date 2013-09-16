@@ -11,7 +11,7 @@ public class TeacherList {
 	public final static HashMap<String, String> ROOM_LIST = new HashMap<String, String>();
 	
 	static {
-		TEACHER_LIST.add("Ball");
+		TEACHER_LIST.add("Boone");
 		TEACHER_LIST.add("Coker");
 		TEACHER_LIST.add("Duggan");				
 		TEACHER_LIST.add("Elliott");
@@ -29,12 +29,13 @@ public class TeacherList {
 		TEACHER_LIST.add("Nelson");
 		TEACHER_LIST.add("Reese");
 		TEACHER_LIST.add("Sauve/Smit");
+		TEACHER_LIST.add("Smallman");
 		TEACHER_LIST.add("Smith");
 		TEACHER_LIST.add("Thomas");
 		TEACHER_LIST.add("Weyand");
 		TEACHER_LIST.add("Young");
 		TEACHER_LIST.add("Zazulak");
-		ROOM_LIST.put("Ball", "21");
+		ROOM_LIST.put("Boone", "21");
 		ROOM_LIST.put("Coker", "16");
 		ROOM_LIST.put("Duggan", "23");				
 		ROOM_LIST.put("Elliott", "17");
@@ -52,6 +53,7 @@ public class TeacherList {
 		ROOM_LIST.put("Nelson", "5");
 		ROOM_LIST.put("Reese", "23");
 		ROOM_LIST.put("Sauve/Smit", "1");
+		ROOM_LIST.put("Smallman", "?");
 		ROOM_LIST.put("Smith", "10");
 		ROOM_LIST.put("Thomas", "4");
 		ROOM_LIST.put("Weyand", "13");

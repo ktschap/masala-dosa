@@ -50,6 +50,7 @@
 								<TD class=bold>Meets</TD>
 								<TD class=bold>Fee</TD>
 								<TD class=bold>Class runs from - to</TD>
+								<TD class=bold>Room</TD>
 							</tr>
 							<c:forEach var="classObj" items="${classes}" varStatus="loop">
 								<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
@@ -58,6 +59,7 @@
 								<td class="meets"> ${classObj.day} <br/> ${classObj.time}</td>
 								<td class="fee"> ${classObj.feeString} </td>
 								<td class="dates"> ${classObj.dates} </td>
+								<td class="room"> ${classObj.room}</td>
 								</tr>	
 							</c:forEach>
 						</table>
@@ -114,6 +116,7 @@
 									<TD class=bold>Meets</TD>
 									<TD class=bold>Fee</TD>
 									<TD class=bold>Class runs from - to</TD>
+									<TD class=bold>Room</TD>
 								</tr>
 								<c:forEach var="classObj" items="${classes}" varStatus="loop">
 									<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
@@ -123,6 +126,7 @@
 									<td class="meets"> ${classObj.day}<br/>${classObj.time}</td>
 									<td class="fee"> ${classObj.feeString}</td>
 									<td class="dates"> ${classObj.dates}</td>
+									<td class="room"> ${classObj.room}</td>
 									</tr>	
 								</c:forEach>
 								</table>
