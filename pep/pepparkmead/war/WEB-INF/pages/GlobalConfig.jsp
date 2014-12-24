@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="/includes/styles/admin.css"> 
 	</head>
 	<body>	
-		<c:set var="semesters" scope='page'>S13,F13,W14,S14,F14,W15,S15,F15</c:set>
+		<c:set var="semesters" scope='page'>W14,S14,F14,W15,S15,F15,S16,F16,S17,F17,S18,F18</c:set>
 		<c:if test="${config.mailVendor}">
 			<c:set var="checked" value="checked" scope="page"/>
 		</c:if> 			
@@ -23,6 +23,10 @@
 				<label>Registration On?</label>
 				<input type="checkbox" id="registrationOn" style="float: left;" name="registrationOn" ${checkedRegOn}></input>
 			</div>
+      <div class="txtbox">
+        <label>Registration Closed Text</label>
+        <input type="text" id="registrationClosedText" style="float: left;" name="registrationClosedText" ${config.registrationClosedMessage}></input>
+      </div>
 			<div class="txtbox">
 				<label>Set Current Semester:</label>
 				<div class="select"><div class="fld">

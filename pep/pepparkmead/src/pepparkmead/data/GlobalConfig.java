@@ -19,7 +19,10 @@ public class GlobalConfig {
 	private boolean mailVendor;	
 
 	@Persistent
-	private Boolean registrationOn;	
+	private boolean registrationOn;
+
+  @Persistent
+  private String registrationClosedMessage;
 
 	public String getCurrentSemester() {
 		return currentSemester;
@@ -39,13 +42,19 @@ public class GlobalConfig {
 		this.mailVendor = mailVendor;
 	}
 	
-	public Boolean getRegistrationOn() {
+	public boolean getRegistrationOn() {
 		return registrationOn;
 	}
 	
-	public void setRegistrationOn(Boolean b) {
-		if (b == null) 
-			b = Boolean.FALSE;
+	public void setRegistrationOn(boolean b) {
 		this.registrationOn = b;
 	}
+
+  public String getRegistrationClosedMessage() {
+    return registrationClosedMessage;
+  }
+
+  public void setRegistrationClosedMessage(String registrationClosedMessage) {
+    this.registrationClosedMessage = registrationClosedMessage;
+  }
 }

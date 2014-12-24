@@ -56,6 +56,8 @@ public class PEPClass {
     private String teacherEmail;
 	@Persistent
     private String teacherPhone;
+  @Persistent
+  private boolean regClosed;
 
 	public void setClassName(String t) {
 		className = t;
@@ -240,4 +242,12 @@ public class PEPClass {
 	public void setFileId(Long fileId) {
 		this.fileId = fileId;
 	}
+
+  public boolean getRegClosed() {
+    return regClosed;
+  }
+
+  public void setRegClosed(boolean regClosed) {
+    this.regClosed = regClosed;
+  }
 }

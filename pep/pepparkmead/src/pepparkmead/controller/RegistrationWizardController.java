@@ -29,6 +29,7 @@ public class RegistrationWizardController {
 		model.put("classes", classes);
 		model.put("teachers", TeacherList.TEACHER_LIST);
 		model.put("regOn", dataMgr.getConfig().getRegistrationOn());
+    model.put("regClosedMsg", dataMgr.getConfig().getRegistrationClosedMessage());
 		log.info("logging on form model: " + model.get("regOn"));
 		model.put("semesterFriendlyDescription", Util.getFriendlySemesterString(currentSemester));
 		return "index";

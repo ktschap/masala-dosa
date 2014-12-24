@@ -13,7 +13,7 @@
 	<body>
 		<c:set var="regDisabled" scope='page'>disabled</c:set>
 		<c:set var="nextLabel" value="Registration Closed" scope="page"/>
-		<c:set var="classListInstructions" value="Registration is currently closed" scope="page"/>
+		<c:set var="classListInstructions" value="${regClosedMsg}" scope="page"/>
 		<c:if test="${regOn}">
 			<c:set var="regDisabled" value="" scope="page"/>
 			<c:set var="nextLabel" value="Next Step" scope="page"/>
@@ -54,7 +54,9 @@
 							</tr>
 							<c:forEach var="classObj" items="${classes}" varStatus="loop">
 								<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
-								<td class="classname"><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
+								<td class="classname"><a class=bold href="/details?id=${classObj.fileId}">
+								  ${classObj.regClosed ? 'CLOSED ' : ''} ${classObj.className} </a> <br/> (${classObj.notes})
+                </td>
 								<td class="grades"> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
 								<td class="meets"> ${classObj.day} <br/> ${classObj.time}</td>
 								<td class="fee"> ${classObj.feeString} </td>
@@ -120,8 +122,10 @@
 								</tr>
 								<c:forEach var="classObj" items="${classes}" varStatus="loop">
 									<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
-									<td class="selectclass"> <input name="classChoicesCB" class="required classChoice" id="class${classObj.ID}" type="checkbox" value="${classObj.ID}" /> </td>
-									<td class="classname2"><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
+									<td class="selectclass"> <input name="classChoicesCB" class="required classChoice" id="class${classObj.ID}" type="checkbox" value="${classObj.ID}" ${classObj.regClosed ? 'disabled' : ''}  /> </td>
+									<td class="classname2"><a class=bold href="/details?id=${classObj.fileId}">
+                      ${classObj.regClosed ? 'CLOSED ' : ''} ${classObj.className} </a> <br/> (${classObj.notes})
+                  </td>
 									<td class="grades"> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
 									<td class="meets"> ${classObj.day}<br/>${classObj.time}</td>
 									<td class="fee"> ${classObj.feeString}</td>

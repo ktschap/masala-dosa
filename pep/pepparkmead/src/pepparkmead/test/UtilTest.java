@@ -40,7 +40,7 @@ public class UtilTest {
 		assertEquals("Fall 2015", Util.getFriendlySemesterString("F15"));
 		assertEquals("Winter 2013", Util.getFriendlySemesterString("W13"));
 		assertEquals("Winter 2013", Util.getFriendlySemesterString(" W13"));
-		
+    assertEquals("Spring 2018", Util.getFriendlySemesterString("S18"));
 	}
 
 }

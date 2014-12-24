@@ -14,6 +14,7 @@
 					<tr id="classHeader">
 						<TD class=bold>Action</TD>
 						<TD class=bold>Class</TD>
+            <TD class=bold>Closed?</TD>
 						<TD class=bold>Grades</TD>
 						<TD class=bold>Meets</TD>
 						<TD class=bold>Fee</TD>
@@ -28,6 +29,7 @@
 						<tr class="${loop.index % 2 == 0 ? 'white' : 'cream'}">
 							<td><a class=ulink href="ClassEdit.do?classToEdit=${classObj.ID}">Edit</a></td>
 							<td><a class=bold href="/details?id=${classObj.fileId}"> ${classObj.className} </a> <br/> (${classObj.notes}) </td>
+              <td>${classObj.regClosed}</td>
 							<td> ${classObj.lowestAllowedGrade} - ${classObj.highestAllowedGrade} </td>
 							<td> ${classObj.day} <br/> ${classObj.time}</td>
 							<td> ${classObj.feeString} </td>
@@ -37,7 +39,7 @@
 							<td> ${classObj.vendorId} </td>
 							<td> ${classObj.fileId} </td>
 							<td><a class=ulink onclick="return confirm('Are you sure you want to delete this class?')" href="ClassDelete.do?classToDelete=${classObj.ID}">Delete</a></td>
-						</tr>	
+						</tr>
 					</c:forEach>
 					</table>
 				</c:when>
