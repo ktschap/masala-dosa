@@ -8,7 +8,7 @@
 	<body>	
 		<c:set var="semesters" scope='page'>W14,S14,F14,W15,S15,F15,S16,F16,S17,F17,S18,F18</c:set>
 		<c:if test="${config.mailVendor}">
-			<c:set var="checked" value="checked" scope="page"/>
+			<c:set var="checkedMailVendor" value="checked" scope="page"/>
 		</c:if> 			
 		<c:if test="${config.registrationOn}">
 			<c:set var="checkedRegOn" value="checked" scope="page"/>
@@ -17,7 +17,7 @@
 			
 			<div class="txtbox">
 				<label>Mail Vendor on Registration?</label>
-				<input type="checkbox" id="mailVendor" style="float: left;" name="mailVendor" ${checked}></input>
+				<input type="checkbox" id="mailVendor" style="float: left;" name="mailVendor" ${checkedMailVendor}></input>
 			</div>
 			<div class="txtbox">
 				<label>Registration On?</label>
@@ -25,7 +25,7 @@
 			</div>
       <div class="txtbox">
         <label>Registration Closed Text</label>
-        <input type="text" id="registrationClosedText" style="float: left;" name="registrationClosedText" ${config.registrationClosedMessage}></input>
+        <input type="text" id="registrationClosedMessage" style="float: left;" name="registrationClosedMessage" value="${config.registrationClosedMessage}"></input>
       </div>
 			<div class="txtbox">
 				<label>Set Current Semester:</label>

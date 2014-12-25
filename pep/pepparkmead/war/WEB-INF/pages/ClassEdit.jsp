@@ -32,7 +32,7 @@
 					<input type="hidden" name="ID" id="ID" maxlength="60" value="${classToEdit.ID}" class="" />
 				</c:if>
 				<div class="txtbox"><label>Class Name:</label><div class="fld"><input type="text" name="className" id="className" maxlength="60" value="${classToEdit.className}" class="required" /></div></div>
-        <div class="txtbox"><label>Registration Closed:</label><div class="fld"><input type="checkbox" name="regOpen" id="regOpen" value="${classToEdit.regClosed ? 'checked' : ''}"/></div></div>
+        <div class="txtbox"><label>Registration Closed:</label><div class="fld"><input type="checkbox" name="regClosed" id="regClosed" ${classToEdit.regClosed ? 'checked' : ''}/></div></div>
         <div class="txtbox"><label>Day:</label><div class="fld"><input type="text" name="day" id="day" maxlength="50" value="${classToEdit.day}" class="required" /></div></div>
 				<div class="txtbox"><label>Dates:</label><div class="fld"><input type="text" name="dates" id="dates" maxlength="50" value="${classToEdit.dates}" class="required" /></div></div>
 				<div class="txtbox"><label>Lowest Allowed Grade:</label>
@@ -85,7 +85,7 @@
 					<select name="semester" id="semester">
 						<c:forEach var="currentSemester" items="${semesters}">
 							<c:choose>
-								<c:when test="${currentSemester == classToEdit.fileId}">
+								<c:when test="${currentSemester == classToEdit.semester}">
 									<option value="${currentSemester}" selected="selected">${currentSemester}</option>
 								</c:when>
 							  	<c:otherwise>

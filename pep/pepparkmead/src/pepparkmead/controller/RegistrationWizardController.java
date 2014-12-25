@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import pepparkmead.IDataMgr;
 import pepparkmead.TeacherList;
+import pepparkmead.data.GlobalConfig;
 import pepparkmead.data.PEPClass;
 import pepparkmead.util.Util;
 
@@ -28,8 +29,9 @@ public class RegistrationWizardController {
 		List<PEPClass> classes = dataMgr.getAllClasses(currentSemester);
 		model.put("classes", classes);
 		model.put("teachers", TeacherList.TEACHER_LIST);
-		model.put("regOn", dataMgr.getConfig().getRegistrationOn());
-    model.put("regClosedMsg", dataMgr.getConfig().getRegistrationClosedMessage());
+		final GlobalConfig config = dataMgr.getConfig();
+		model.put("regOn", config.getRegistrationOn());
+		model.put("regClosedMsg", config.getRegistrationClosedMessage());
 		log.info("logging on form model: " + model.get("regOn"));
 		model.put("semesterFriendlyDescription", Util.getFriendlySemesterString(currentSemester));
 		return "index";
