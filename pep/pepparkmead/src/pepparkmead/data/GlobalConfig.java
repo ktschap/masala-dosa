@@ -19,7 +19,7 @@ public class GlobalConfig {
 	private boolean mailVendor;	
 
 	@Persistent
-	private boolean registrationOn;
+	private Boolean registrationOn;
 
   @Persistent
   private String registrationClosedMessage;
@@ -42,11 +42,14 @@ public class GlobalConfig {
 		this.mailVendor = mailVendor;
 	}
 	
-	public boolean getRegistrationOn() {
+	public Boolean getRegistrationOn() {
 		return registrationOn;
 	}
 	
-	public void setRegistrationOn(boolean b) {
+	public void setRegistrationOn(Boolean b) {
+		if (b == null) {
+			b = false;
+		}
 		this.registrationOn = b;
 	}
 

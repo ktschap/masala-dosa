@@ -13,7 +13,7 @@
 	<body>
 		<c:set var="regDisabled" scope='page'>disabled</c:set>
 		<c:set var="nextLabel" value="Registration Closed" scope="page"/>
-		<c:set var="classListInstructions" value="${regClosedMsg}" scope="page"/>
+		<c:set var="classListInstructions" value="${regClosedMsg}. Click the class name to view the brochure" scope="page"/>
 		<c:if test="${regOn}">
 			<c:set var="regDisabled" value="" scope="page"/>
 			<c:set var="nextLabel" value="Next Step" scope="page"/>
